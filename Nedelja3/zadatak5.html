@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            text-align: center;
+        }
+
+        #broj {
+            width: 50px;
+            height: 30px;
+            border: 1px solid red;
+            padding-top: 15px;
+            display: inline-block;
+        }
+        #field{
+            margin: 0 auto;
+            width: 400px;
+        }
+    </style>
+
+    <title>Zadatak 4</title>
+</head>
+
+<body>
+    <div class="wrapper">
+        <h1>ITBootcamp JavaScript</h1>
+        <fieldset id="field">
+            <legend>Naruci pizzu!</legend>
+        <button id="btnD">Dodaj</button>
+        <div id="broj">0</div>
+        <button id="btnO">Naruci</button>
+        </fieldset>
+        <fieldset id="field">
+            <legend>Vasa porudzbina</legend>
+        <p id="racun"></p>
+        </fieldset>
+    </div>
+    <script>
+        var br = document.getElementById('broj');
+        var vreme = new Date();
+        var vremePorudzbine = `${vreme.getHours()}:${vreme.getMinutes()}:${vreme.getSeconds()}`;
+        var counter = 0,
+            racun = document.querySelector('#racun');
+        document.getElementById("btnD").addEventListener("click", function () {
+            counter++;
+            br.innerHTML = counter;
+        });
+        document.getElementById("btnO").addEventListener("click", function () {
+            if (counter != 0) {
+                racun.innerHTML += `Vasa porudzbina je. ${counter} pica. U ${vremePorudzbine} casova!<br>`;
+                counter = 0;
+                br.innerHTML = counter;
+            }else{
+                racun.innerHTML += `Odabrana kolicina je. ${counter} pica. Porudzbina nije izvrsena!<br>`;
+                counter = 0;
+                br.innerHTML = counter;
+            }
+
+
+        });
+
+        console.log(br);
+    </script>
+</body>
+
+
+</html>
