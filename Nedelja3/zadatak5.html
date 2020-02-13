@@ -16,7 +16,8 @@
             padding-top: 15px;
             display: inline-block;
         }
-        #field{
+
+        #field {
             margin: 0 auto;
             width: 400px;
         }
@@ -30,19 +31,35 @@
         <h1>ITBootcamp JavaScript</h1>
         <fieldset id="field">
             <legend>Naruci pizzu!</legend>
-        <button id="btnD">Dodaj</button>
-        <div id="broj">0</div>
-        <button id="btnO">Naruci</button>
+            <div id="broj">0</div><br><br>
+            <select onchange="getSelectVal();" id="list">
+                <option value="Margarita">Margarita</option>
+                <option value="Kapricoza">Kapricoza</option>
+                <option value="Sicilijana">Sicilijana</option>
+            </select>
+            <button id="btnD">Dodaj</button>            
+            <button id="btnO">Naruci</button>
         </fieldset>
         <fieldset id="field">
             <legend>Vasa porudzbina</legend>
-        <p id="racun"></p>
+            <p id="racun"></p>
         </fieldset>
     </div>
     <script>
+        function  getSelectVal() {
+            var selectedValue = document.getElementById('list').value;
+            //console.log(selectedValue);
+            return selectedValue;
+            
+        }
+
         var br = document.getElementById('broj');
-        var vreme = new Date();
-        var vremePorudzbine = `${vreme.getHours()}:${vreme.getMinutes()}:${vreme.getSeconds()}`;
+        function vremeNarudzbe() {
+            var vreme = new Date();
+            var vremePorudzbine = `${vreme.getHours()}:${vreme.getMinutes()}:${vreme.getSeconds()}`;
+            return vremePorudzbine;
+        }
+
         var counter = 0,
             racun = document.querySelector('#racun');
         document.getElementById("btnD").addEventListener("click", function () {
@@ -51,10 +68,10 @@
         });
         document.getElementById("btnO").addEventListener("click", function () {
             if (counter != 0) {
-                racun.innerHTML += `Vasa porudzbina je. ${counter} pica. U ${vremePorudzbine} casova!<br>`;
+                racun.innerHTML += `Vasa porudzbina je. ${counter} pica ${getSelectVal()}. U ${vremeNarudzbe()} casova!<br>`;
                 counter = 0;
                 br.innerHTML = counter;
-            }else{
+            } else {
                 racun.innerHTML += `Odabrana kolicina je. ${counter} pica. Porudzbina nije izvrsena!<br>`;
                 counter = 0;
                 br.innerHTML = counter;
