@@ -93,13 +93,25 @@ function speedSort(nizP) {
 4. Направити функцију која прима низ покемона, пореди покемоне по јачини и 
     враћа као победника оног који има највећу јачину напада.*/
 
-    function strongestSort(nizP) {
+    /*function strongestSort(nizP) {
            nizP.sort((b, a) => a.karakteristike.napad - b.karakteristike.napad);
            
-        return nizP[0];
+        return nizP[0];  
+    }
+    //console.log(strongestSort(sviPokemoni));
+    */
+    function strongestSort(nizP) {
+        let napad = 0;
+        let najjaciPokemon;
+        nizP.forEach((pok)=>{
+            if (pok.karakteristike.napad > napad) {
+                napad = pok.karakteristike.napad;
+                najjaciPokemon = pok;
+            }
+        })
+        return najjaciPokemon;
     }
     
-    //console.log(strongestSort(sviPokemoni));
 
 /*
 5. За дати html направити скрипту која:
