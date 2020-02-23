@@ -139,13 +139,17 @@ let btnPrikaz = document.querySelector('#prikaz');
 let btnNajjaci = document.querySelector('#pobednik');
 let app = document.querySelector('#app');
 let omotac = document.querySelector('#omotac');
+let najj = document.querySelector('#najjaci');
+let body = document.querySelector('body');
+
 
 btnPrikaz.addEventListener('click', ()=>{
-    renderHTML(content(sviPokemoni));
+    renderHTML(sviPokemoni);
 })
 
 btnNajjaci.addEventListener('click', ()=>{
-    renderNajjaciHTML(content(sviPokemoni))
+    renderNajjaciHTML(sviPokemoni);
+    najj.style.display = "block";
 })
 
 const renderHTML = function () {
@@ -156,23 +160,28 @@ const renderHTML = function () {
     })
 }
 const renderNajjaciHTML = function () {
-    app.innerHTML = '';    
+    najj.innerHTML = '';    
     let najjaci = strongestSort(sviPokemoni);    
         let drg = content(najjaci);
-        app.innerHTML = drg;
+        najj.innerHTML = drg;
 }
 
 
 
 
 const content = function (niz) {
-      return `<p>Ime: ${niz.ime} <br>
-               Vrsta: ${niz.vrsta}<br>
-               Sposobnosti ${niz.sposobnosti}<br>
-               Karakteristike:<br>
-               Napad:${niz} <br>               
+      return `<div id="omotac">
+            <h3>${niz.ime}</h3>
+            <p> <b>Vrsta:</b> ${niz.vrsta}<br>
+               <b>Sposobnosti: </b><br>
+                ${niz.sposobnosti}</b><br>
+                <b>Karakteristike:</b><br>
+                Napad:${niz.karakteristike.napad}<br>               
+                Brzina:${niz.karakteristike.brzina}<br>               
+                Odbrana:${niz.karakteristike.odbrana}<br>               
             </p> <br>
-            <img src="${niz.slika}">`
+            <img src="${niz.slika}">
+            </div>`
     
 }
 

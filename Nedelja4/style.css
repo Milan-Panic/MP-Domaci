@@ -1,0 +1,38 @@
+body{
+    background-color: #5f9ea0;
+}
+p{
+    background-color: #426f70;
+    padding: 5px;
+    color: whitesmoke;
+    max-width: 290px;
+    font-size: 1em;
+}
+#najjaci{
+    width: 500px;
+    height: auto;
+    background-color: rgba(127, 255, 212, 0.827);
+    position: absolute;
+    left: 300px;
+    display: none;
+    text-align: center;
+    border: 2px solid rgb(22, 22, 102);
+}
+
+img{
+    max-width: 300px;
+}
+#omotac{
+    width: 40%;
+    height: auto;
+    padding: 20px;
+    margin: 20px;
+}
+
+#app{
+    width: 900px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    
+}
