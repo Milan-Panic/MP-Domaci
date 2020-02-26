@@ -6,53 +6,79 @@ let dugme = document.querySelector('#btn');
 let prihod = 0;
 let rashod = 0;
 let budzet = 0;
+let proc = 0;
+let globProc = 0;
 
 dugme.addEventListener('click', (e)=>{
     e.preventDefault();
     let znak = znakE.value;
     let opis = opisE.value;
     let cena = parseInt(cenaE.value);
-
     //console.log(znak, cena, opis);
     if (znak == 'prihod') {
         prihod += cena;
         budzet += cena;
+        globProc = rashod / budzet *100;
         //rashod = '';
-        addTaskPrihod(opis, cena);   //funkcija za ubacivanje taska u prihode
+        addTaskPrihod(opis, cena);
     }else{
         rashod += cena;
+        proc = cena / budzet * 100;
         budzet -= cena;
+        globProc = rashod / budzet *100;
         //prihod = '';
-        addTaskRashod(opis, cena,budzet);
+        addTaskRashod(opis, cena, budzet);
     }
+    //console.log(proc);    
     // console.log(`Budzet: ${budzet}`);
     // console.log(`Prihod: ${prihod} Rashod: ${rashod} procenat ${rashod / budzet * 100}%`);
-    let stanjePrikaz = document.querySelector('#omotac');
-    stanjePrikaz.innerHTML = renderHTML(budzet, prihod, rashod);
+    
     
     
     opisE.value = '';
     cenaE.value = '';
 })
-
+let stanjePrikaz = document.querySelector('#omotac');
 let  rezultatiPrihoda = document.querySelector('#rezultatiPrihoda'); 
 const addTaskPrihod = (opi, cen)=>{
     let listItem = document.createElement('div');
     listItem.id = "listItem";
     listItem.innerHTML = `<p>${opi}</p><p>+${cen}</p>`;
     rezultatiPrihoda.appendChild(listItem);
+    stanjePrikaz.innerHTML = renderHTML(budzet, prihod, rashod, Math.floor(globProc));
+    let delBtn = document.createElement('p');
+    delBtn.innerHTML = `&#9940;`;
+    delBtn.addEventListener('click', (e)=>{
+        listItem.remove();
+    });
+    listItem.appendChild(delBtn);
+    proc = 0;
+    globProc = 0;
+
 }
+
 let  rezultatiRashoda = document.querySelector('#rezultatiRashoda'); 
 
 const addTaskRashod = (opi, cen, budz)=>{
     let listItem = document.createElement('div');
     listItem.id = "listItem";
-    listItem.innerHTML = `<p>${opi}</p><p>${cen}</p><span>${Math.round(cen / budz * 100)/100}%</span>`;
+    listItem.innerHTML = `<p>${opi}</p><p>${cen}</p><span>${proc}%</span>`;
     rezultatiRashoda.appendChild(listItem);
+    stanjePrikaz.innerHTML = renderHTML(budz, prihod, rashod, Math.floor(globProc));
+    let delBtn = document.createElement('p');
+    delBtn.innerHTML = `&#9940;`;
+    delBtn.addEventListener('click', (e)=>{
+        listItem.remove();
+    });
+    listItem.appendChild(delBtn);
+    proc = 0;
+    globProc = 0;
+
+
 }
 
 
-const renderHTML = (budz, prih, rash)=>{
+const renderHTML = (budz, prih, rash, pro)=>{
     return `<h3>Dostupan budzet u Februaru 2020</h3>
     <div id="budzet">${budz}</div>
     <div id="stanje-prikaz">
@@ -62,7 +88,7 @@ const renderHTML = (budz, prih, rash)=>{
         </div>
         <div id="rashod-prikaz">
             <p>RASHOD</p>
-            <p id="rashod">-${rash}  <span>${Math.round(rash / budz * 100)/100}%</span></p>
+            <p id="rashod">-${rash}  <span>${pro}%</span></p>
         </div>                
     </div>`;
 }
