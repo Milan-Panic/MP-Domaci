@@ -1,0 +1,89 @@
+html,
+body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+#omotac{
+    height: 300px;
+    background-color: rgb(121, 113, 113);
+    padding-top: 20px;
+}
+h3{
+    color: lightyellow;
+    font-size: 2em;
+    font-weight: 500;
+    margin-top: 0px;
+}
+#budzet{
+    color: lightyellow;
+    font-size: 3em;
+    font-weight: 500;
+}
+#prihod-prikaz, #rashod-prikaz{
+    width: 350px;
+    height: 40px;
+    background-color: rgb(26, 186, 214);
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    padding: 5px 15px;
+    border-radius: 18px;
+    color: darkslategray;
+}
+#rashod-prikaz{
+    background-color: rgb(224, 74, 28);
+}
+#rashod, #prihod{
+    color: lightyellow;
+}
+#unos-podataka{
+    height: 100px;
+    background-color: rgb(177, 172, 172);
+    padding-top: 35px;
+}
+input, select{
+    height: 35px;
+}
+#rezultati{
+    height: 600px;
+    width: 800px;
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+    text-align: left;
+
+
+}
+#rezultatiPrihoda, #rezultatiRashoda{
+    width: 50%;
+    height: 400px;
+    padding: 30px;
+}
+#rezultatiPrihoda{
+    color: rgb(26, 186, 214);
+}
+#rezultatiRashoda{
+    color: rgb(224, 74, 28);
+}
+#listItem{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid gray;
+
+}
+p:first-of-type{
+    color: gray;
+}
+span{
+    height: 20px;
+    background-color: rgb(219, 128, 100);
+    border-radius: 5px;
+    color: white;
+    padding: 3px;
+    margin-top: 10px;
+}

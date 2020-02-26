@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Domaci5Nedelja</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="app">
+        <div id="omotac">
+            <h3>Dostupan budzet u Februaru 2020</h3>
+            <div id="budzet">0</div>
+            <div id="stanje-prikaz">
+                <div id="prihod-prikaz">
+                    <p>PRIHOD</p>
+                    <p id="prihod"></p>
+                </div>
+                <div id="rashod-prikaz">
+                    <p>RASHOD</p>
+                    <p id="rashod">  <span>%</span></p>
+                </div>                
+            </div>
+        </div>
+
+        <div id="unos-podataka">
+            <form id="form">
+                <select id="znak">
+                    <option value="prihod">+</option>
+                    <option value="rashod">-</option>
+                </select>
+                <input type="text" id="opis" placeholder="Opis">
+                <input type="number" id="cena" placeholder="Iznos">
+                <input type="submit" id="btn">
+            </form>
+        </div>
+
+        <div id="rezultati">
+            <div id="rezultatiPrihoda">
+                <h4>PRIHODI</h4>
+                <div id="listItem">
+                <p>OPIS</p><p>KOLICINA NOVCA</p>
+                </div>
+            </div>
+            <div id="rezultatiRashoda">
+                <h4>RASHODI</h4>
+                <div id="listItem">
+                    <p>OPIS</p><p>KOLICINA NOVCA <span>%</span></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="main.js"></script>
+</body>
+</html>
