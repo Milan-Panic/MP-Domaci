@@ -79,6 +79,10 @@ input, select{
 p:first-of-type{
     color: gray;
 }
+#listItem > p:last-of-type{
+    visibility: hidden;
+    pointer-events: stroke;
+}
 span{
     height: 20px;
     background-color: rgb(219, 128, 100);

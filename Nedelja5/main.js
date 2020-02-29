@@ -49,7 +49,8 @@ const addTaskPrihod = (opi, cen) => {
     globProc = rashod / budzet * 100;
     let listItem = document.createElement('div');
     listItem.id = "listItem";
-    listItem.innerHTML = `<p>${opi}</p><p>+${Math.floor(cen)}</p>`;
+    addHover(listItem);
+    listItem.innerHTML = `<p>${opi}</p><p></p><p>+${Math.floor(cen)}</p>`;
     rezultatiPrihoda.appendChild(listItem);
     stanjePrikaz.innerHTML = renderHTML(budzet, prihod, rashod, Math.floor(globProc));
     let delBtn = document.createElement('p');
@@ -77,7 +78,8 @@ const addTaskRashod = (opi, cen, budz) => {
 
     let listItem = document.createElement('div');
     listItem.id = "listItem";
-    listItem.innerHTML = `<p>${opi}</p><p>${cen}</p><span>${Math.floor(proc)}%</span>`;
+    addHover(listItem);
+    listItem.innerHTML = `<p>${opi}</p><p>-${cen}</p><span>${Math.floor(proc)}%</span>`;
     rezultatiRashoda.appendChild(listItem);
     stanjePrikaz.innerHTML = renderHTML(budz, prihod, rashod, Math.floor(globProc));
     let delBtn = document.createElement('p');
@@ -113,3 +115,11 @@ const renderHTML = (budz, prih, rash, pro) => {
         </div>                
     </div>`;
 }
+function addHover(element) {
+    element.addEventListener('mouseover', (e) => {
+      e.target.children[3].style.visibility = 'visible';
+    });
+    element.addEventListener('mouseleave', (e) => {
+      e.target.children[3].style.visibility = 'hidden';
+    });
+  }
