@@ -1,0 +1,81 @@
+body{
+    position: relative;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    background-image: url('https://wallpaperplay.com/walls/full/e/4/5/54073.jpg');
+    
+}
+#elon{
+    position: absolute;
+}
+header{
+    color: #fff;
+}
+.launch-list{
+    margin-top: 50px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+.launch{
+    width: 19%;
+    height: 300px;
+    text-align: center;
+    padding: 8px;
+    margin-bottom: 50px;
+    transition: transform .2s;
+    background-color: rgba(255,255,255,0.5);
+}
+#filter{
+    margin-bottom: 40px;
+    width: 100%;
+    text-align: center;   
+}
+#filter select{ padding: 8px; }
+.launch:hover{
+    transform: scale(1.05);
+}
+ 
+.inner-div-0{
+    height: 190px;
+    width: 100%;
+ 
+}
+.inner-div-0 img{
+    height: 100%;
+    /* width: 100%; */
+}
+.inner-div-1{
+    height: 45px;
+    width: 100%;
+    border-bottom: 0.5px solid #999;
+}
+.inner-div-2{
+    height: 45px;
+    width: 100%;
+}
+ 
+span{
+    display: inline-block;
+    margin-top: 12.3px;
+    margin-right: 5px;
+}
+ 
+#rocket {
+    position: absolute;
+    visibility: hidden;
+    left:35%;
+    animation: fly 3s .5s ease-in;
+}
+ 
+ 
+@keyframes fly {
+0% {
+    visibility: visible;
+    bottom: -600px;  
+}
+100% {
+ 
+    bottom: 100%;
+}
+}
