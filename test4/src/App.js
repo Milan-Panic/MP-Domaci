@@ -1,13 +1,12 @@
 import React from 'react';
 import './App.css';
-import {proba} from './services/services'
+//import {proba} from './services/services'
+import Wrapper from './components/Wrapper';
 
 function App() {
 
   return (
-    <div className="App">
-        
-    </div>
+    <Wrapper/>
   );
 }
 

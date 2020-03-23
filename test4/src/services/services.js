@@ -1,8 +1,14 @@
 import axios from 'axios'
-
-const proba = async () => {
-    let response = await axios('https://coetus.herokuapp.com/api/message');
-    console.log(response.data.data[0]);    
+const baseUrl = 'http://dummy.restapiexample.com/api/v1';
+const getEmployee = async () => {
+    let response = await axios(`${baseUrl}/employees`);
+    //console.log(response.data.data);
+    return response.data.data; 
 }
-proba()
-export { proba }
+
+const postEmployee = async (name, salary) => {
+    await axios.post(`${baseUrl}/create`, {name, salary})
+    .then(res => res.data.data)
+}
+
+export { getEmployee, postEmployee }
